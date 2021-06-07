@@ -11,3 +11,8 @@ runs:
   steps:
   - run: ${{ github.action_path }}/brakeman.sh
     shell: bash
+  - name: Archive sarif output
+    uses: actions/upload-artifact@v2
+    with:
+      name: sarif-results
+      path: results.sarif
