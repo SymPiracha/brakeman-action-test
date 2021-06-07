@@ -1,5 +1,5 @@
 name: Brakeman action
-author: Artem Kozaev
+author: aaa
 description: GitHub Action to run Brakeman static analysis which checks Ruby on Rails applications for security vulnerabilities.
 
 inputs:
@@ -7,7 +7,18 @@ inputs:
     description: "Flags (list of available flags: https://github.com/presidentbeef/brakeman#basic-options)"
 
 runs:
+<<<<<<< HEAD
   using: 'composite'
   steps:
   - run: ${{ github.action_path }}/brakeman.sh
     shell: bash
+=======
+  using: docker
+  image: docker://presidentbeef/brakeman
+  args:
+    - ${{ inputs.flags }}
+
+branding:
+  icon: alert-octagon
+  color: black
+>>>>>>> ffddb4cbb1819ab4bb6141b928878930f7b18a43
