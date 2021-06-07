@@ -1,5 +1,5 @@
 name: Brakeman action
-author: -----
+author: aaa
 description: GitHub Action to run Brakeman static analysis which checks Ruby on Rails applications for security vulnerabilities.
 
 inputs:
