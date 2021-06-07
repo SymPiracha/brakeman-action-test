@@ -1,18 +1,12 @@
-name: Brakeman action
-author: aaa
-description: GitHub Action to run Brakeman static analysis which checks Ruby on Rails applications for security vulnerabilities.
-
-inputs:
-  flags:
-    description: "Flags (list of available flags: https://github.com/presidentbeef/brakeman#basic-options)"
-
+name: 'hack'
+description: 'hack'
+outputs:
+  sarif: 
+    description: 'The SARIF output'
 runs:
-  using: 'composite'
-  steps:
-  - run: ${{ github.action_path }}/brakeman.sh
-    shell: bash
-  - name: Archive sarif output
-    uses: actions/upload-artifact@v2
-    with:
-      name: sarif-results
-      path: results.sarif
+  using: 'docker'
+  image: 'docker://presidentbeef:brakeman'
+  entrypoint: 
+    - sh
+    - -c
+    - echo "::set-output name=sarif::$(/usr/src/app/bin/brakeman -f sarif)"
