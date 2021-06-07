@@ -7,11 +7,7 @@ inputs:
     description: "Flags (list of available flags: https://github.com/presidentbeef/brakeman#basic-options)"
 
 runs:
-  using: docker
-  image: docker://presidentbeef/brakeman
-  args:
-    - ${{ inputs.flags }}
-
-branding:
-  icon: alert-octagon
-  color: black
+  using: 'composite'
+  steps:
+  - run: ${{ github.action_path }}/brakeman.sh
+    shell: bash
