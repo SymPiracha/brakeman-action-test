@@ -6,8 +6,8 @@ inputs:
     description: "Flags --"
 
 runs:
-  using: 'docker'
-  image: 'docker://presidentbeef:brakeman'
+  using: docker
+  image: docker://presidentbeef/brakeman
   entrypoint: '/usr/src/app/bin/brakeman'
   args:
     - ${{ inputs.flags }}
