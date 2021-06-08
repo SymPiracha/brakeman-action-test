@@ -8,4 +8,4 @@ outputs:
 runs:
   using: docker
   image: docker://presidentbeef/brakeman
-  entrypoint: "find / -name entrypoint.sh"
+  entrypoint: "/github/workflow/entrypoint.sh"
