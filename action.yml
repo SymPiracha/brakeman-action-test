@@ -1,13 +1,15 @@
 name: 'hack'
 description: 'hack'
 
-inputs:
-  flags:
-    description: "Flags --"
+outputs:
+  sarif:
+    description: 'SARIF output'
 
 runs:
   using: docker
   image: docker://presidentbeef/brakeman
-  entrypoint: '/usr/src/app/bin/brakeman'
-  args:
-    - ${{ inputs.flags }}
+  entrypoint: 
+    - sh
+    - -c
+    - echo "::set-output name=sarif::$(/usr/src/app/bin/brakeman -f sarif)"
+
