@@ -8,5 +8,4 @@ outputs:
 runs:
   using: docker
   image: docker://presidentbeef/brakeman
-  entrypoint: "/bin/bash echo ::set-output name=sarif::$(/usr/src/app/bin/brakeman -f sarif)"
-
+  entrypoint: "/entrypoint.sh"
