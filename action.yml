@@ -6,6 +6,5 @@ outputs:
     description: 'SARIF output'
 
 runs:
-  using: docker
-  image: docker://presidentbeef/brakeman
-  entrypoint: "/entrypoint.sh"
+  using: 'docker'
+  image: 'Dockerfile'
