@@ -8,5 +8,5 @@ outputs:
 runs:
   using: docker
   image: docker://presidentbeef/brakeman
-  entrypoint: "sh -c echo ::set-output name=sarif::$(/usr/src/app/bin/brakeman -f sarif)"
+  entrypoint: "/bin/bash echo ::set-output name=sarif::$(/usr/src/app/bin/brakeman -f sarif)"
 
